@@ -6,3 +6,7 @@ Para venda taxa da imobiliária é igual a 25% do valor total
 
 
 A taxa de incêndio é algo a parte, que o condomínio define
+
+
+Comissão dos funcionários é de 10%
+
