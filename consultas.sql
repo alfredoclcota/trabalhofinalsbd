@@ -64,7 +64,6 @@ SELECT imovel.tipo_imovel, COUNT(*) AS numero_de_imoveis_alugados
 	ORDER BY COUNT(*) DESC;
 
 ---  6 CARACTERÍSTICAS DOS IMOVEIS MAIS ALUGADOS ---
-
 SELECT * 
 	FROM(SELECT *
 		FROM(SELECT imovel.cod_id_imovel,imovel.tipo_imovel
@@ -73,7 +72,7 @@ SELECT *
 		ON a.cod_id_imovel = apartamento.cod_id_ap) AS b
 	INNER JOIN endereco
 	ON b.id_endereco = endereco.id_endereco;
-
+	
 SELECT * 
 	FROM(SELECT *
 		FROM(SELECT imovel.cod_id_imovel,imovel.tipo_imovel
@@ -145,3 +144,54 @@ SELECT COUNT(*) AS clientes_originarios_da_regiao_sudeste
 			UPPER(cliente_proprietario.endereco) LIKE '%%RJ' OR
 			UPPER(cliente_proprietario.endereco) LIKE '%%ES'
 		   )) AS a;
+		   
+/**/
+--- 11 Qual o ganho devido as taxas de imobiliaria, tanto para aluguel quanto para venda? ---
+
+SELECT SUM(compra.taxa_imobiliaria + aluga.taxa_imobiliaria) AS ganho_devido_as_taxas_de_imobiliaria
+FROM compra CROSS JOIN aluga;
+
+--- 12 Quantos imoveis foram vendidos ou alugados entre 2020 e 2022, para avaliar o impacto da pandemia? ---
+
+SELECT COUNT(*) imoveis_vendidos_ou_alugados_na_pandemia
+	FROM historico 
+	WHERE (UPPER(status_locacao) = 'INDISPONÍVEL' AND UPPER(status_venda) = 'INDISPONÍVEL') 
+		AND (EXTRACT (YEAR FROM data_compra) BETWEEN '2020' AND '2022' OR EXTRACT (YEAR FROM data_locacao) BETWEEN '2020' AND '2022');
+
+--- 13 Avaliar o uso de cartao pelos clientes para efetuar as transacoes de compra ---
+
+SELECT pagamento, COUNT(*)
+FROM registro
+GROUP BY pagamento;
+
+--- 14 Verificar o gasto com reformas ---
+
+SELECT SUM(valor_total) AS gasto_total_com_reformas
+	FROM reforma;
+
+--- 15 IDENTIFICAR IMOVEIS REFORMADOS, PARA NÃO HAVER DUPLO GASTO COM O MESMO ---
+
+SELECT imovel.tipo_imovel, endereco.bairro 
+	FROM imovel NATURAL JOIN reforma
+	INNER JOIN endereco
+	ON imovel.cod_id_imovel = endereco.id_endereco;
+
+--- 16 QUANTOS IMOVEIS FORAM REFORMADOS POR BAIRRO
+
+SELECT COUNT(imovel.tipo_imovel), endereco.bairro 
+	FROM imovel NATURAL JOIN reforma
+	INNER JOIN endereco
+	ON imovel.cod_id_imovel = endereco.id_endereco
+	GROUP BY endereco.bairro, imovel.tipo_imovel;
+	
+--- 17 VALOR TOTAL A SER PAGO PARA OS FUNCIONÁRIOS CADASTRADOS e seu cargo --- 
+
+SELECT SUM(funcionario.salario_base + funcionario.comissao) AS valor_total_a_ser_pago_para_o_funcionario
+	FROM funcionario INNER JOIN cargos
+	ON funcionario.salario_base = cargos.salario_base;
+	
+--- 18 CONTAGEM DE PESSOAS DO SEXO MASCULINO E FEMINIO DENTRE OS FUNCIONÁRIO ---
+
+SELECT sexo, COUNT(sexo) AS contagem
+	FROM funcionario 
+	GROUP BY sexo
