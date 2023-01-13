@@ -540,15 +540,15 @@ INSERT INTO cargos(salario_base, nome)
 --- TABELA FUNCIONÁRIOS ---
 
 INSERT INTO funcionario(cpf, nome, sexo, endereco, data_ingresso, comissao, salario_base)
-	VALUES('33387550405', 'Diogo Goncalves Lima', 'MASCULINO', 'Rua Ernesto Gomes Correa, 205 - SP', '2019-03-15', 250.00, 2000.00);
+	VALUES('33387550405', 'Diogo Goncalves Lima', 'MASCULINO', 'Rua Ernesto Gomes Correa, 205 - SP', '2019-03-15', 200.00, 2000.00);
 INSERT INTO funcionario(cpf, nome, sexo, endereco, data_ingresso, comissao, salario_base)
-	VALUES('36405012093', 'Cauã Cunha Dias', 'MASCULINO', 'Rua Dezenove, 1171 - PE', '2020-05-20', 500.00, 2000.00);
+	VALUES('36405012093', 'Cauã Cunha Dias', 'MASCULINO', 'Rua Dezenove, 1171 - PE', '2020-05-20', 200.00, 2000.00);
 INSERT INTO funcionario(cpf, nome, sexo, endereco, data_ingresso, comissao, salario_base)
-	VALUES('94899506880', 'Thaís Correia Carvalho', 'FEMININO', 'Praça Padre Giovanni Graceffa, 867 - PR', '2021-08-25', 320.00, 1700.00);
+	VALUES('94899506880', 'Thaís Correia Carvalho', 'FEMININO', 'Praça Padre Giovanni Graceffa, 867 - PR', '2021-08-25', 170.00, 1700.00);
 INSERT INTO funcionario(cpf, nome, sexo, endereco, data_ingresso, comissao, salario_base)
-	VALUES('49353904250', 'Thaís Costa Ferreira', 'FEMININO', 'Travessa São Judas Tadeu, 359 - RJ', '2021-09-03', 177.00, 1700.00);
+	VALUES('49353904250', 'Thaís Costa Ferreira', 'FEMININO', 'Travessa São Judas Tadeu, 359 - RJ', '2021-09-03', 170.00, 1700.00);
 INSERT INTO funcionario(cpf, nome, sexo, endereco, data_ingresso, comissao, salario_base)
-	VALUES('22018281135', 'Alice Araujo Melo', 'FEMININO', 'Rua Nossa Senhora da Ajuda, 1131 - ES', '2018-07-30', 200.00, 3000.00);
+	VALUES('22018281135', 'Alice Araujo Melo', 'FEMININO', 'Rua Nossa Senhora da Ajuda, 1131 - ES', '2018-07-30', 300.00, 3000.00);
 
 --- TABELA LOGIN --- 
 
@@ -644,26 +644,26 @@ INSERT INTO aluga(id_aluga, data_locacao, taxa_imobiliaria, taxa_incendio, valor
 --- TABELA COMPRA ---
 
 INSERT INTO compra(id_compra, data_compra, taxa_imobiliaria, valor, cod_id_imovel, cpf_funcionario, cpf_cliente_proprietario)
-	VALUES(1, '2022-07-25', 25000.00, 100000.00, 1, '33387550405', '64346900372');
+	VALUES(1, '2022-07-25', 5000.00, 100000.00, 1, '33387550405', '64346900372');
 INSERT INTO compra(id_compra, data_compra, taxa_imobiliaria, valor, cod_id_imovel, cpf_funcionario, cpf_cliente_proprietario)
-	VALUES(2, '2022-08-20', 41250.00, 165000.00, 2, '33387550405', '43654179320');
+	VALUES(2, '2022-08-20', 8250.00, 165000.00, 2, '33387550405', '43654179320');
 INSERT INTO compra(id_compra, data_compra, taxa_imobiliaria, valor, cod_id_imovel, cpf_funcionario, cpf_cliente_proprietario)
-	VALUES(3, '2022-12-20', 62500.00, 250000.00, 4, '36405012093', '97551784063');
+	VALUES(3, '2022-12-20', 12500.00, 250000.00, 4, '36405012093', '97551784063');
 INSERT INTO compra(id_compra, data_compra, taxa_imobiliaria, valor, cod_id_imovel, cpf_funcionario, cpf_cliente_proprietario)
-	VALUES(4, '2022-04-05', 100000.00, 400000.00, 5, '36405012093', '90937324205');
+	VALUES(4, '2022-04-05', 20000.00, 400000.00, 5, '36405012093', '90937324205');
 	
 INSERT INTO compra(id_compra, data_compra, taxa_imobiliaria, valor, cod_id_imovel, cpf_funcionario, cpf_cliente_proprietario)
-	VALUES(5, '2022-08-30', 175000.00, 700000.00, 9, '94899506880', '68153616838');
+	VALUES(5, '2022-08-30', 35000.00, 700000.00, 9, '94899506880', '68153616838');
 	
 INSERT INTO compra(id_compra, data_compra, taxa_imobiliaria, valor, cod_id_imovel, cpf_funcionario, cpf_cliente_proprietario)
-	VALUES(6, '2022-02-25', 137500.00, 550000.00, 13, '49353904250', '91303444500');
+	VALUES(6, '2022-02-25', 27500.00, 550000.00, 13, '49353904250', '91303444500');
 INSERT INTO compra(id_compra, data_compra, taxa_imobiliaria, valor, cod_id_imovel, cpf_funcionario, cpf_cliente_proprietario)
-	VALUES(7, '2022-04-19', 177500.00, 710000.00, 14, '49353904250', '26417353184');
+	VALUES(7, '2022-04-19', 35500.00, 710000.00, 14, '49353904250', '26417353184');
 	
 INSERT INTO compra(id_compra, data_compra, taxa_imobiliaria, valor, cod_id_imovel, cpf_funcionario, cpf_cliente_proprietario)
-	VALUES(8, '2022-06-10', 52500.00, 200000.00, 19, '22018281135', '99755574492');
+	VALUES(8, '2022-06-10', 10000.00, 200000.00, 19, '22018281135', '99755574492');
 INSERT INTO compra(id_compra, data_compra, taxa_imobiliaria, valor, cod_id_imovel, cpf_funcionario, cpf_cliente_proprietario)
-	VALUES(9, '2022-11-01', 26250.00, 105000.00, 20, '22018281135', '61106372891');
+	VALUES(9, '2022-11-01', 5250.00, 105000.00, 20, '22018281135', '61106372891');
 	
 --- TABELA HISTÓRICO ---
 
